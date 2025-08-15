@@ -2,7 +2,7 @@
 
 [论文链接](http://arxiv.org/abs/2203.03605) | [代码仓库](https://github.com/IDEACVR/DINO)
 
-![DINO框架图](https://cdn.nlark.com/yuque/0/2025/png/35468084/1735874025764-b00c6bdf-c35c-453f-9877-3fb6f63c2f53.png)
+![DINO框架图](./ASSETS/DINO框架图.png)
 
 > **图 1. DINO模型框架**：我们的改进主要集中在Transformer编码器和解码器上。编码器最后一层的Top-K特征被选择用于初始化解码器的位置查询，而内容查询保持为可学习参数。解码器还包含一个对比去噪（CDN）模块，同时处理正样本和负样本。
 
@@ -18,7 +18,7 @@ DINO（DETR with Improved deNoising anchOr boxes）是一种最先进的端到�
 
 ## 一、对比去噪训练（Contrastive DeNoising Training, CDN）
 
-![CDN示意图](https://cdn.nlark.com/yuque/0/2025/png/35468084/1735874398469-c6581797-fe41-4db9-94b5-92cc102411dc.png)
+![CDN示意图](./ASSETS/CDN示意图.png)
 
 > **图 2. CDN结构和正负样本示例**：内圈为正样本区域，内外圈之间为负样本区域。
 
@@ -328,7 +328,7 @@ dn_labelbook_size = 91        # 类别数量+1（背景类）
 
 ## 二、混合查询选择（Mixed Query Selection）
 
-![查询初始化对比](https://cdn.nlark.com/yuque/0/2025/png/35468084/1735874961496-3c9a10d9-7d6f-4e40-bc53-eb04f5d0b64f.png)
+![查询初始化对比](./ASSETS/查询初始化对比.png)
 
 > **图 3. 三种查询初始化方法对比**：(a) 静态查询 (b) 动态查询 (c) 混合查询（DINO采用）
 
