@@ -1,5 +1,5 @@
-[submodule "DINOv1/DINO"]
-	path = DINOv1/DINO
+[submodule "DINO[IDEA-端到端检测]/DINO"]
+	path = DINO[IDEA-端到端检测]/DINO
 	url = https://github.com/IDEACVR/DINO
 [submodule "DINOv2/dinov2"]
 	path = DINOv2/dinov2
