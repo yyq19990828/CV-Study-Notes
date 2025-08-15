@@ -1,0 +1,9 @@
+[submodule "DINOv1/DINO"]
+	path = DINOv1/DINO
+	url = https://github.com/IDEACVR/DINO
+[submodule "DINOv2/dinov2"]
+	path = DINOv2/dinov2
+	url = https://github.com/facebookresearch/dinov2.git
+[submodule "DINOv1/dino"]
+	path = DINOv1/dino
+	url = https://github.com/facebookresearch/dino.git
