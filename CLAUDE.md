@@ -4,20 +4,77 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 项目概述
 
-这是一个专门研究目标检测算法的仓库，每个子文件夹包含一种算法技术的实现。主要用于分析论文核心技术、撰写详细的中文技术分析文档，并结合代码实现进行深入理解。
+这是一个计算机视觉学习笔记仓库，专门研究目标检测算法。每个子文件夹包含一种算法技术的官方实现代码和详细的中文技术分析文档。
 
 ## 项目结构
 
 ```
-OD/
-├── DINOv1/
-│   ├── DINO/                    # DINO算法官方代码实现
-│   │   ├── models/dino/         # 核心模型代码
-│   │   ├── config/DINO/         # 配置文件
-│   │   └── README.md            # 官方说明文档
-│   └── DETR系列3：DINO.md       # DINO技术分析文档
-└── [其他算法文件夹]/
+CV-Study-Notes/
+├── DINO[IDEA-端到端检测]/        # DINO检测算法
+│   ├── DINO/                    # 官方代码实现
+│   └── [2022]DINO.md            # 技术分析文档
+├── DINOv1/                       # DINO自监督学习
+│   ├── dino/                    # 官方代码实现
+│   └── [2021]DINO_自监督学习.md  # 技术分析文档
+├── DINOv2/                       # DINOv2改进版
+│   ├── dinov2/                  # 官方代码实现
+│   └── [2024]DINOv2.md          # 技术分析文档
+├── FCOS/                         # FCOS全卷积单阶段检测器
+│   ├── FCOS/                    # 官方代码实现
+│   └── [2019]FCOS技术报告.md    # 技术分析文档
+└── YOLOX/                        # YOLOX无锚框检测器
+    ├── YOLOX/                    # 官方代码实现
+    └── 技术文档（待添加）
 ```
+
+## 常用命令
+
+### FCOS项目
+```bash
+# 训练FCOS模型
+python -m torch.distributed.launch \
+    --nproc_per_node=8 \
+    --master_port=$((RANDOM + 10000)) \
+    tools/train_net.py \
+    --config-file configs/fcos/fcos_imprv_R_50_FPN_1x.yaml \
+    DATALOADER.NUM_WORKERS 2 \
+    OUTPUT_DIR training_dir/fcos_imprv_R_50_FPN_1x
+
+# 测试FCOS模型
+python tools/test_net.py \
+    --config-file configs/fcos/fcos_imprv_R_50_FPN_1x.yaml \
+    MODEL.WEIGHT FCOS_imprv_R_50_FPN_1x.pth \
+    TEST.IMS_PER_BATCH 4
+
+# 运行演示
+python demo/fcos_demo.py
+```
+
+### YOLOX项目
+```bash
+# 训练YOLOX模型
+python -m yolox.tools.train -n yolox-s -d 8 -b 64 --fp16 -o [--cache]
+
+# 评估YOLOX模型
+python -m yolox.tools.eval -n yolox-s -c yolox_s.pth -b 64 -d 8 --conf 0.001 [--fp16] [--fuse]
+
+# 运行演示
+python tools/demo.py image -n yolox-s -c /path/to/yolox_s.pth --path assets/dog.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result
+```
+
+## 代码架构说明
+
+### FCOS架构
+- **核心模型实现**: `fcos_core/modeling/rpn/fcos/` - FCOS检测头实现
+- **损失函数**: `fcos_core/modeling/rpn/fcos/loss.py` - Focal Loss和IoU Loss
+- **推理逻辑**: `fcos_core/modeling/rpn/fcos/inference.py` - 后处理和NMS
+- **配置系统**: `configs/fcos/` - YAML配置文件
+
+### YOLOX架构
+- **核心模型**: `yolox/models/` - YOLOX网络结构
+- **数据增强**: `yolox/data/data_augment.py` - Mosaic和MixUp
+- **训练器**: `yolox/core/trainer.py` - 训练循环逻辑
+- **实验配置**: `exps/default/` - 不同规模模型配置
 
 ## 工作流程
 
@@ -44,7 +101,7 @@ OD/
 
 4. **代码片段标注**
    - 引用代码时注明文件路径和行号
-   - 示例：`models/dino/deformable_transformer.py:749`
+   - 示例：`fcos_core/modeling/rpn/fcos/fcos.py:123`
    - 保持代码片段简洁，突出核心逻辑
 
 ## 注意事项

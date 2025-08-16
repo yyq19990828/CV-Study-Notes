@@ -7,3 +7,9 @@
 [submodule "DINOv1/dino"]
 	path = DINOv1/dino
 	url = https://github.com/facebookresearch/dino.git
+[submodule "FCOS/FCOS"]
+	path = FCOS/FCOS
+	url = https://github.com/tianzhi0549/FCOS.git
+[submodule "YOLOX/YOLOX"]
+	path = YOLOX/YOLOX
+	url = https://github.com/Megvii-BaseDetection/YOLOX.git
