@@ -16,3 +16,6 @@
 [submodule "TOOD/TOOD"]
 	path = TOOD/TOOD
 	url = https://github.com/fcjian/TOOD.git
+[submodule "YOLOv6/YOLOv6"]
+	path = YOLOv6/YOLOv6
+	url = https://github.com/meituan/YOLOv6.git

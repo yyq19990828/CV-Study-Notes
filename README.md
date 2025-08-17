@@ -51,6 +51,7 @@ git submodule foreach git pull origin main
 - **[[2021]YOLOX](YOLOX/[2021]YOLOX技术报告.md)** - 超越YOLO系列的无锚框检测器
 - **[[2021]TOOD](TOOD/[2021]TOOD技术报告.md)** - 任务对齐单阶段目标检测器
 - **[[2022]DINO](DINO[IDEA-端到端检测]/[2022]DINO.md)** - 端到端目标检测算法
+- **[[2023]YOLOv6](YOLOv6/[2023]YOLOv6技术报告.md)** - 工业级实时目标检测框架
 
 ### 自监督学习
 - **[[2021]DINO自监督学习](DINOv1/[2021]DINO_自监督学习.md)** - 自监督视觉Transformer
@@ -64,6 +65,7 @@ git submodule foreach git pull origin main
 | **FCOS** | 2019 | 无锚框+中心度 | 44.7% | 首个实用无锚框检测器 |
 | **TOOD** | 2021 | 任务对齐+T-Head | 51.1% | 解决分类定位错位问题 |
 | **YOLOX** | 2021 | 解耦头+SimOTA | 51.5% | 超越YOLO系列性能 |
+| **YOLOv6** | 2022-2023 | EfficientRep+BiC+AAT | 57.2% | 工业级实时检测框架 |
 | **DINO** | 2022 | 对比去噪+混合查询 | 63.3% | 端到端检测新SOTA |
 | **DINOv1** | 2021 | 自监督学习 | - | 视觉Transformer预训练 |
 | **DINOv2** | 2024 | 改进自监督 | - | 更强的视觉特征表示 |
@@ -92,6 +94,9 @@ git submodule update --init YOLOX/YOLOX
 
 # 只初始化FCOS子模块  
 git submodule update --init FCOS/FCOS
+
+# 只初始化YOLOv6子模块
+git submodule update --init YOLOv6/YOLOv6
 ```
 
 ### Q: 技术文档中的代码引用如何验证？
