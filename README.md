@@ -49,6 +49,7 @@ git submodule foreach git pull origin main
 ### 目标检测
 - **[[2019]FCOS](FCOS/[2019]FCOS技术报告.md)** - 全卷积单阶段目标检测器
 - **[[2021]YOLOX](YOLOX/[2021]YOLOX技术报告.md)** - 超越YOLO系列的无锚框检测器
+- **[[2021]TOOD](TOOD/[2021]TOOD技术报告.md)** - 任务对齐单阶段目标检测器
 - **[[2022]DINO](DINO[IDEA-端到端检测]/[2022]DINO.md)** - 端到端目标检测算法
 
 ### 自监督学习
@@ -61,6 +62,7 @@ git submodule foreach git pull origin main
 | 算法 | 年份 | 主要创新 | COCO mAP | 特点 |
 |------|------|----------|----------|------|
 | **FCOS** | 2019 | 无锚框+中心度 | 44.7% | 首个实用无锚框检测器 |
+| **TOOD** | 2021 | 任务对齐+T-Head | 51.1% | 解决分类定位错位问题 |
 | **YOLOX** | 2021 | 解耦头+SimOTA | 51.5% | 超越YOLO系列性能 |
 | **DINO** | 2022 | 对比去噪+混合查询 | 63.3% | 端到端检测新SOTA |
 | **DINOv1** | 2021 | 自监督学习 | - | 视觉Transformer预训练 |

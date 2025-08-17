@@ -13,3 +13,6 @@
 [submodule "YOLOX/YOLOX"]
 	path = YOLOX/YOLOX
 	url = https://github.com/Megvii-BaseDetection/YOLOX.git
+[submodule "TOOD/TOOD"]
+	path = TOOD/TOOD
+	url = https://github.com/fcjian/TOOD.git
